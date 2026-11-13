@@ -131,19 +131,19 @@
   }
 
   @media print {
-    @page { size: A4; margin: 14mm; }
-    :root { --bg: #fff; --paper: #fff; }
-    body { font-size: 11.5px; }
-    .topbar, footer { display: none; }
+    @page { size: A4; margin: 10mm 0; background: #f7f5f0; }
+    html, body { -webkit-print-color-adjust: exact; print-color-adjust: exact; background: var(--bg); }
+    :root, :root[data-theme="dark"], :root:not([data-theme="light"]) {
+      --bg: #f7f5f0; --paper: #ffffff; --ink: #1c1d21; --muted: #5f6470; --faint: #8d929c;
+      --line: #e4e0d6; --accent: #0f6b5c; --accent-soft: #e3f0ec; --chip: #f1eee6;
+    }
+    .wrap { zoom: .72; }
+    .topbar { display: none; }
     .hero { padding-top: 0; }
-    .grid { grid-template-columns: minmax(0,1fr) 220px; gap: 24px; }
+    .grid { grid-template-columns: minmax(0, 1fr) 280px; gap: 48px; }
     aside { position: static; order: 2; }
     main { order: 1; }
-    .hero { flex-direction: row; align-items: center; }
-    .avatar { width: 120px; height: 150px; }
-    .pub { grid-template-columns: 1fr; gap: 4px; }
     .item, .pub, .card { break-inside: avoid; }
-    a { color: inherit; }
   }
 </style>
 </head>
